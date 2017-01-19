@@ -64,3 +64,7 @@ if __name__ == '__main__':
     print("Original:  " + input_string)
     print("Encrypted: " + cipher_string)
     print("Decrypted: " + decrypt_string)
+
+    # Write output to file
+    with open('output.txt','w') as output_file:
+        output_file.write(cipher_string)
