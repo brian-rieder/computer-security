@@ -95,7 +95,7 @@ Theory Questions:
         No integer exists as the result, 9, is not within Z_7.
 """
 
-# Programming Assignment 
+# Programming Assignment
 def has_MI(num, mod):
     """
     Determines whether the input number has a multiplicative inverse under the input modulus.
