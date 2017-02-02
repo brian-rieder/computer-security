@@ -147,6 +147,8 @@ def des_encryption(key_string, input_filename, output_filename, encrypt):
     output_file = open(output_filename, 'w')
     while bv.more_to_read:
         bitvec = bv.read_bits_from_file(64)  # process 8 bytes at a time
+        if bitvec.length() % 64 != 0:
+          bitvec.pad_from_right(64 - bitvec.length() % 64)
         [LE, RE] = bitvec.divide_into_two()
         if bitvec.length() > 0:
             for round_key in round_keys if encrypt else round_keys[::-1]:  # True->in-order, False->reverse-order
