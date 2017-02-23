@@ -84,6 +84,10 @@ def write_encrypted(filename, encrypted_list):
         for data_block in encrypted_list:
             block_bv = BitVector(intVal=data_block, size=256)
             output_file.write(block_bv.get_text_from_bitvector())
+    with open(filename + '.hex', 'w') as output_file:
+        for data_block in encrypted_list:
+            block_bv = BitVector(intVal=data_block, size=256)
+            output_file.write(block_bv.get_hex_from_bitvector())
 
 
 if __name__ == '__main__':
