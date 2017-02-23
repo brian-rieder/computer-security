@@ -131,7 +131,7 @@ if __name__ == '__main__':
             with open(sys.argv[3] + '.hex', 'w') as output_file:
                 for data_block in encrypted_list:
                     block_bv = BitVector(intVal=data_block, size=256)
-                    output_file.write(block_bv.get_hex_from_bitvector())
+                    output_file.write(block_bv.get_bitvector_in_hex())
         elif sys.argv[1] == '-d':
             if not os.path.isfile('private_key.txt') or not os.access('private_key.txt', os.R_OK):
                 print("Private key file 'private_key.txt' doesn't exist or cannot be read.")
@@ -144,8 +144,8 @@ if __name__ == '__main__':
                     block_bv = BitVector(intVal=data_block, size=128)
                     output_file.write(block_bv.get_text_from_bitvector())
             with open(sys.argv[3] + '.hex', 'w') as output_file:
-                for data_block in encrypted_list:
+                for data_block in decrypted_list:
                     block_bv = BitVector(intVal=data_block, size=256)
-                    output_file.write(block_bv.get_hex_from_bitvector())
+                    output_file.write(block_bv.get_bitvector_in_hex())
     else:
         print("File " + sys.argv[2] + " does not exist or cannot be read.")

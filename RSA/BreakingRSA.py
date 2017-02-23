@@ -87,7 +87,7 @@ def write_encrypted(filename, encrypted_list):
     with open(filename + '.hex', 'w') as output_file:
         for data_block in encrypted_list:
             block_bv = BitVector(intVal=data_block, size=256)
-            output_file.write(block_bv.get_hex_from_bitvector())
+            output_file.write(block_bv.get_bitvector_in_hex())
 
 
 if __name__ == '__main__':
@@ -106,8 +106,11 @@ if __name__ == '__main__':
 
         # encrypt the given plaintext with each of the three public keys
         encrypted1 = encrypt(sys.argv[1], public_key1)
+        write_encrypted('encrypted1.txt', encrypted1)
         encrypted2 = encrypt(sys.argv[1], public_key2)
+        write_encrypted('encrypted2.txt', encrypted2)
         encrypted3 = encrypt(sys.argv[1], public_key3)
+        write_encrypted('encrypted3.txt', encrypted3)
         encrypted_length = len(encrypted1)
 
         # generate N values
