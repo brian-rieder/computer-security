@@ -11,8 +11,10 @@ for i in $(seq 1 $testcases) ; do
   fortune | tee tmp.txt
   echo ""
   output=$(hw07.py tmp.txt)
+  cat output.hex
   expected=$(echo "Hash matches 'hashlib' hex digest!")
   diff <(echo $output) <(echo $expected)
+  echo ""
   if [ $? -eq 0 ] ; then
     printf "\033[0;32mPASSED\n\033[0m"
     (( successes += 1 ))
