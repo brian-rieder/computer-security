@@ -1,0 +1,89 @@
+Testing hash function...
+==================================================
+Test Case 1: 
+
+Somewhere on this globe, every ten seconds, there is a woman giving birth
+to a child.  She must be found and stopped.
+		-- Sam Levenson
+
+3c35afc58a41f4c92c05ef17329c6cdbcb3babe00256a7a1f0ceca958014e8907dbcf1907e081a5cf7690b0ea067c918c0401982d95fa35ed5f2186e513c9a11
+[0;32mPASSED
+[0m==================================================
+Test Case 2: 
+
+When you are at Rome live in the Roman style; when you are elsewhere live
+as they live elsewhere.
+		-- St. Ambrose
+
+cb089c416eca3c2521742f0b40cbc17dd820f21fca01299118976808a241dcea5d8fb53d283a3f3aa3568ceccf805e9ebe115a3dce702253d3b527fcffc49004
+[0;32mPASSED
+[0m==================================================
+Test Case 3: 
+
+Algol-60 surely must be regarded as the most important programming language
+yet developed.
+		-- T. Cheatham
+
+b6264376873dfa1641dd5e1bb5464ec7e988a33b0a5dc817b983461364079e690bbbf64c8190708f5831c5219dd734bc946b3db4c4472753251e42f9a918f1bc
+[0;32mPASSED
+[0m==================================================
+Test Case 4: 
+
+If I felt any more SOPHISTICATED I would DIE of EMBARRASSMENT!
+
+e57f04b050b94299de3a8ef784e0cee83a84aad7af6c5d4f038512def9de5e485a3d8c4abb43a27707453859f82be53b8f07f4343bebd20da09e0faeae435719
+[0;32mPASSED
+[0m==================================================
+Test Case 5: 
+
+Gordon's first law:
+	If a research project is not worth doing, it is not worth doing well.
+
+39fc577aba3e8bc4bd9de28625413390619a7cae9f5c94d967684aea5cfb13154c4b0f54ea0681a6a78cb3395ae544d7a9ddf6db402aa7b393864b9ec0512531
+[0;32mPASSED
+[0m==================================================
+Test Case 6: 
+
+If while you are in school, there is a shortage of qualified personnel
+in a particular field, then by the time you graduate with the necessary
+qualifications, that field's employment market is glutted.
+		-- Marguerite Emmons
+
+e9744b975f7f43ef46a4a6d15b7e3e4c0cb177350c2cb1d1ca2b053653976287a6d1b757872d2fbf589c8dd201947a58e8f2bae57f5acc4b80edfb8880c026da
+[0;32mPASSED
+[0m==================================================
+Test Case 7: 
+
+Thus spake the master programmer:
+	"Though a program be but three lines long, someday it will have to
+	be maintained."
+		-- Geoffrey James, "The Tao of Programming"
+
+df40b4e1591df68b62620414c144a31f79309c22cda3d0bd2b6a8057c49242673dd8ee84206eeac5236af55e07ea838357b9ac6ff704b28fdc23ee34de9f183c
+[0;32mPASSED
+[0m==================================================
+Test Case 8: 
+
+Peace is much more precious than a piece of land... let there be no more wars.
+		-- Mohammed Anwar Sadat, 1918-1981
+
+f01190b18658d7a8600632801419e683eb0ed192937355af362bb6a7957a16881f34dc696ef6ebcabb4a30412b9f8d3fc00da9b0dd1c87a331d5753e7e456182
+[0;32mPASSED
+[0m==================================================
+Test Case 9: 
+
+The difference between waltzes and disco is mostly one of volume.
+		-- T.K.
+
+e90cb617df99692bb067ca562ce398d15cac941aff7944ad2560c9f22227e61248f18ac062af8620e74fdaead3701bcaed810f2382f0d9005b7c3d864a7aff54
+[0;32mPASSED
+[0m==================================================
+Test Case 10: 
+
+Death is a spirit leaving a body, sort of like a shell leaving the nut behind.
+		-- Erma Bombeck
+
+cca429e52b226f167a5f9623602499ca7b48ca435b88506553e6cd534e90157efada7889647ac0c6140df4f600b279d1267c7edea5924835d1326e3e09e43200
+[0;32mPASSED
+[0m==================================================
+Results: 10 / 10
