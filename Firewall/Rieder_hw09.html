@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<meta charset="UTF-8">
+<html>
+<head>
+<title>C:\Users\Brian\computer-security\Firewall\Rieder_hw09.sh</title>
+<style>
+.highlight .hll { background-color: #ffffcc }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #808080 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0040D0 } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+.highlight * { font-family: monospace; }
+.highlight { font-size: 90%; }
+.highlight { line-height: normal; }
+.highlight .err { border: none !important }
+.highlight > pre { word-wrap: break-word; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="c">#!/bin/bash</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="c"># Linux Firewall</span>
+<span class="lineno"> 4</span> <span class="c"># Brian Rieder (brieder)</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="c"># Place no restriction on outbound packets</span>
+<span class="lineno"> 7</span> iptables -I OUTPUT 1 -j ACCEPT
+<span class="lineno"> 8</span> 
+<span class="lineno"> 9</span> <span class="c"># Block a list of specific IP addresses for all incoming connections</span>
+<span class="lineno">10</span> iptables -A INPUT -s 64.0.0.0/101.255.255.255 -j DROP
+<span class="lineno">11</span> 
+<span class="lineno">12</span> <span class="c"># Block your computer from being pinged by all other hosts</span>
+<span class="lineno">13</span> iptables -A INPUT -p icmp --icmp-type <span class="nb">echo</span>-request -j REJECT
+<span class="lineno">14</span> 
+<span class="lineno">15</span> <span class="c"># Set up port forwarding from an unused port to port 22</span>
+<span class="lineno">16</span> iptables -t nat -A PREROUTING -p tcp --dport 7900 -j DNAT --to 128.58.10.100:22
+<span class="lineno">17</span> iptables -A INPUT -p tcp --dport 7900 -j ACCEPT
+<span class="lineno">18</span> iptables -A FORWARD -p tcp --dport 22 -j ACCEPT
+<span class="lineno">19</span> 
+<span class="lineno">20</span> <span class="c"># Allow SSH access from only ECN</span>
+<span class="lineno">21</span> iptables -A INPUT -p tcp --dport 22 -j REJECT
+<span class="lineno">22</span> iptables -A INPUT -s ecn.purdue.edu -p tcp --dport 22 -j ACCEPT
+<span class="lineno">23</span> 
+<span class="lineno">24</span> <span class="c"># Allow only a single IP address to access for HTTP</span>
+<span class="lineno">25</span> iptables -A INPUT -p tcp --dport 80 -j REJECT
+<span class="lineno">26</span> iptables -A INPUT -p tcp -s 128.58.10.100 --dport 80 -j ACCEPT
+<span class="lineno">27</span> 
+<span class="lineno">28</span> <span class="c"># Permit auth/ident (113) for SMTP, IRC, etc.</span>
+<span class="lineno">29</span> iptables -A INPUT -p tcp -m tcp --syn --dport 113 -j ACCEPT
+</pre></div>
+
+<script>
+// Indent wrapped lines in order to keep them out of the line-numbering column.
+
+// One of these methods should work for a given browser; though this means
+// possibly running the hangingIndent routine 3 times, it also ensures we successfully
+// wrap all code blocks, all the time, on all tested browsers.
+document.addEventListener('DOMContentLoaded', hangingIndentAllCodeBlocks, false);
+window.addEventListener('load', hangingIndentAllCodeBlocks, false);
+hangingIndentAllCodeBlocks();
+
+// Apply hanging indent CSS to wrapped lines in each div.highlight code block
+function hangingIndentAllCodeBlocks() {
+    var blocks = document.getElementsByClassName('highlight');
+    for (var i = 0; i < blocks.length; i++) {
+        hangingIndentCodeBlock(blocks[i]);
+    }
+}
+
+// Apply hanging indent CSS to wrapped lines in given block
+function hangingIndentCodeBlock(block) {
+    var lineNums = block.querySelectorAll('.lineno');
+    if (lineNums.length == 0) {
+        return;
+    }
+
+    // Calculate actual width of a character in the line numbers column
+    var first = lineNums[0];
+    var text = first.innerText || first.textContent;
+    var charWidth = first.offsetWidth / text.length;
+
+    // Adjustment width is width of line number column plus 1 more character-width
+    // for the trailing space that comes after the span.lineno element
+    var adjustWidth = charWidth * (text.length + 1);
+
+    // Indent the entire block by adjustWidth ...
+    block.firstChild.style.marginLeft = adjustWidth + 'px';
+
+    // ... and correspondingly de-indent just the starting line-number <span> of
+    // each line-of-code, resulting in only wrapped lines of code being indented
+    // past the column of line numbers
+    for (var i = 0; i < lineNums.length; i++) {
+        lineNums[i].style.marginLeft = -adjustWidth + 'px';
+    }
+}
+</script>
+</body>
+</html>
